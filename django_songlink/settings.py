@@ -12,9 +12,15 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+#Production can get database info from environment variables
+import dj_database_url
+#Set up static files
+import os
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Default Value
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -25,7 +31,7 @@ SECRET_KEY = 'django-insecure-h1m-pa0@f%xegjnuau13m_&f)qpt@)^cc)7ce-iy)j@1#05n@a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'songlink-django.herokuapp.com']
 
 
 # Application definition
@@ -48,6 +54,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     #Allows cors package to run for all requests
     'corsheaders.middle.CorsMiddleware',
+    #Add white noise middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,6 +68,8 @@ MIDDLEWARE = [
 
 #Allows cors package to run for all requests
 CORS_ALLOW_ALL_ORIGINS = True
+#Added for static files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'django_songlink.urls'
 
@@ -95,6 +105,9 @@ DATABASES = {
     }
 }
 
+#Environment Variables
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -131,6 +144,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# Added static root with os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
