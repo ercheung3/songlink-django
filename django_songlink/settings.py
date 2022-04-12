@@ -33,6 +33,10 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #Added lyrics app
     'lyrics_api',
+    #Added REST framework
+    'rest_framework',
+    #Added CORS for access on other origins
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +46,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    #Allows cors package to run for all requests
+    'corsheaders.middle.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +57,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+#Allows cors package to run for all requests
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'django_songlink.urls'
 

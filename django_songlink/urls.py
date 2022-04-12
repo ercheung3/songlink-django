@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#Used to add url routes for api app
+from django.conf.urls import include
 
 urlpatterns = [
+    #Adds paths of lyrics api
+    path('',include('lyrics_api.urls')),
     path('admin/', admin.site.urls),
 ]

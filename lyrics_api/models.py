@@ -3,4 +3,5 @@ from django.db import models
 # Create your models here.
 class Lyrics(models.Model):
     #song = models.OnetoOneField(Song)
-    text= models.TextField
+    text = models.TextField
+    title = models.CharField(max_length=64)
