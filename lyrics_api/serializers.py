@@ -4,4 +4,4 @@ from .models import Lyrics
 class LyricsSerializer(serializers.ModelSerializer):
     class Meta:
             model = Lyrics
-            fields = ('title','text')
+            fields = ('id','title','text')
