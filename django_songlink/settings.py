@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     #Allows cors package to run for all requests
-    'corsheaders.middle.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     #Add white noise middleware
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
