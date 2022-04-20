@@ -5,3 +5,4 @@ class LyricsSerializer(serializers.ModelSerializer):
     class Meta:
             model = Lyrics
             fields = ('id','title','text')
+

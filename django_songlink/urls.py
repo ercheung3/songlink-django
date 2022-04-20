@@ -21,5 +21,6 @@ from django.conf.urls import include
 urlpatterns = [
     #Adds paths of lyrics api
     path('api/lyrics/',include('lyrics_api.urls')),
+    path('api/song/',include('songs_api.urls')),
     path('admin/', admin.site.urls),
 ]

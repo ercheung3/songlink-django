@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     #Added CORS for access on other origins
     'corsheaders',
+    #Added songs app
+    'songs_api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,6 +141,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+#Added to do POST and UPDATE routes
+APPEND_SLASH = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
