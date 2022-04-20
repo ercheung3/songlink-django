@@ -5,8 +5,8 @@ I have always wanted to share my music taste with the world and now you can shar
 
 ## Hosted App Link
 
-[Songlink App via Heroku](https://songlink-frontend.herokuapp.com/)\
-[Songlink (django) Backend via Heroku](https://songlink-django.herokuapp.com/)
+[Songlink App via Heroku](http://songlink-frontend.herokuapp.com/)\
+[Songlink (django) Backend via Heroku](http://songlink-django.herokuapp.com/)
 
 ## Preview of Songlink
 
@@ -97,4 +97,6 @@ Lyrics
 ## Github Repo
 
 [Songlink Frontend](https://github.com/ercheung3/songlink-frontend)\
-[Songlink Backend](https://github.com/ercheung3/songlink-django)
+[Songlink (mongodb) Backend](https://github.com/ercheung3/songlink-backend)\
+Update v2
+[Songlink (django) Backend](https://github.com/ercheung3/songlink-django)
